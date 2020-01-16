@@ -20,11 +20,6 @@ public class Supplier {
         return amount;
     }
 
-    private Book orderNewBook(String name) {
-        Book book = new Book(name);
-        return book;
-    }
-
     public String toString() {
         return "Supplier- id: " + id + ", name: " + name + ", phone: " + phone + ", address: " + address;
     }

@@ -31,10 +31,6 @@ public class Book {
         this.available = this.inventory;
     }
 
-    private void orderCopies(Supplier supplier, int amount) {
-        this.inventory = this.inventory + supplier.orderCopies(this, amount);
-    }
-
     public int getAvailable() {
         return this.available;
     }
