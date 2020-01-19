@@ -1,8 +1,8 @@
 package app;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class Member {
+class Member {
     private String id;
     private String name;
     private int bookLimit;
@@ -31,7 +31,7 @@ public class Member {
         this.address = address;
     }
 
-    private boolean borrowBook(Book book, Date date, int amount) {
+    public boolean borrowBook(Book book, Date date, int amount) {
         if (this.bookOut >= this.bookLimit) {
             System.out.println("limit of " + this.bookLimit + " passed");
             return false;

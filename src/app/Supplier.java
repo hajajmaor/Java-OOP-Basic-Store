@@ -20,7 +20,7 @@ public class Supplier {
         return amount;
     }
 
-    private Book orderNewBook(String name, int amount) {
+    public Book orderNewBook(String name, int amount) {
         return new Book();
     }
 

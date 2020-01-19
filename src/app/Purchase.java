@@ -20,11 +20,14 @@ public class Purchase {
         this.id = 5;
         this.purchaseDetails = "";
         this.date = new Date();
-
     }
 
-    private boolean purchaseBook(Supplier supplier, String name, int amount) {
+    private Book purchaseBook(Supplier supplier, String name, int amount) {
         Book book = supplier.orderNewBook(name, amount);
-        return true;
+        return book;
+    }
+
+    public String toString() {
+        return "Purchase - id: " + this.id + ",date: " + this.date + ", purchase Details:" + this.purchaseDetails;
     }
 }
