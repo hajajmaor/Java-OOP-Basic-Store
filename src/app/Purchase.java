@@ -23,8 +23,8 @@ public class Purchase {
 
     }
 
-    private boolean purchaseBook(Supplier supplier, Book book) {
-
-        return false;
+    private boolean purchaseBook(Supplier supplier, String name, int amount) {
+        Book book = supplier.orderNewBook(name, amount);
+        return true;
     }
 }
