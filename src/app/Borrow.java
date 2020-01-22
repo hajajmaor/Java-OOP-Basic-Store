@@ -1,14 +1,15 @@
 package app;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Borrow {
     private int days;
-    private Date date;
+    private GregorianCalendar date;
     private Member member;
     private Book book;
 
-    public Borrow(int days, Date date, Member member, Book book) {
+    public Borrow(int days, GregorianCalendar date, Member member, Book book) {
         this.days = days;
         this.date = date;
         this.member = member;
@@ -18,7 +19,7 @@ public class Borrow {
 
     public Borrow() {
         this.days = 5;
-        this.date = new Date();
+        this.date = new GregorianCalendar();
         this.member = new Member();
         this.book = new Book();
         member.borrowBook(this.book, this.date, 1);

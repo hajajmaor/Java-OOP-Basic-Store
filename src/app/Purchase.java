@@ -1,33 +1,34 @@
 package app;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Purchase
  */
 public class Purchase {
     private int id;
-    private String purchaseDetails;
-    private Date date;
+//    private String purchaseDetails;
+    private int amount;
+    private Book book;
+    private GregorianCalendar date;
+    
+	public Purchase() {
+		this.id = 0;
+		this.amount = 0;
+		this.book = new Book();
+		this.date = new GregorianCalendar();	
+	}
 
-    public Purchase(int id, String purchaseDetails, Date date) {
-        this.id = id;
-        this.purchaseDetails = purchaseDetails;
-        this.date = date;
-    }
+	public Purchase(int id, int amount, Book book, GregorianCalendar date) {
+		this.id = id;
+		this.amount = amount;
+		this.book = book;
+		this.date = date;
+	}
 
-    public Purchase() {
-        this.id = 5;
-        this.purchaseDetails = "";
-        this.date = new Date();
-    }
+	public String toString() {
+		return "Purchase [id=" + id + ", amount=" + amount + ", book=" + book + ", date=" + date + "]";
+	}
 
-    private Book purchaseBook(Supplier supplier, String name, int amount) {
-        Book book = supplier.orderNewBook(name, amount);
-        return book;
-    }
 
-    public String toString() {
-        return "Purchase - id: " + this.id + ",date: " + this.date + ", purchase Details:" + this.purchaseDetails;
-    }
 }

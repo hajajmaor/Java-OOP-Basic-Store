@@ -1,9 +1,10 @@
 package app;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 class Member {
-    private String id;
+    private int id;
     private String name;
     private int bookLimit;
     private int bookOut;
@@ -12,7 +13,7 @@ class Member {
     private String address;
 
     public Member() {
-        this.id = null;
+        this.id = 0;
         this.name = null;
         this.bookLimit = 3;
         this.bookOut = 0;
@@ -21,7 +22,7 @@ class Member {
         this.address = null;
     }
 
-    public Member(String id, String name, int bookLimit, int bookOut, int age, String phone, String address) {
+    public Member(int id, String name, int bookLimit, int bookOut, int age, String phone, String address) {
         this.id = id;
         this.name = name;
         this.bookLimit = bookLimit;
@@ -31,7 +32,7 @@ class Member {
         this.address = address;
     }
 
-    public boolean borrowBook(Book book, Date date, int amount) {
+    public boolean borrowBook(Book book, GregorianCalendar date, int amount) {
         if (this.bookOut >= this.bookLimit) {
             System.out.println("limit of " + this.bookLimit + " passed");
             return false;
