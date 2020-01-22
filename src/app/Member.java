@@ -1,6 +1,6 @@
 package app;
 
-import java.util.Date;
+// import java.util.Date;
 import java.util.GregorianCalendar;
 
 class Member {
@@ -53,5 +53,9 @@ class Member {
     public String toString() {
         return "Member- id: " + id + ", name: " + name + ", age: " + age + ", phone: " + phone + ", address: " + address
                 + ", bookOut: " + bookOut + ", out of: " + bookLimit;
+    }
+
+    public int getID() {
+        return this.id;
     }
 }

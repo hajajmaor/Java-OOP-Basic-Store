@@ -16,6 +16,13 @@ public class Supplier {
         this.address = address;
     }
 
+    public Supplier() {
+        this.id = 0;
+        this.name = "mitzi with the books";
+        this.phone = "053-5555555";
+        this.address = "Cyber st Rehovat";
+    }
+
     private int orderCopies(Book book, int amount) {
         return amount;
     }
@@ -26,5 +33,9 @@ public class Supplier {
 
     public String toString() {
         return "Supplier- id: " + id + ", name: " + name + ", phone: " + phone + ", address: " + address;
+    }
+
+    public int getID() {
+        return this.id;
     }
 }

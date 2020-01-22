@@ -1,22 +1,22 @@
 package app;
 
 public class Book {
-    private int code;
+    private int ID;
     private String name;
     private int inventory;
     private int year;
     private int available;
 
     public Book() {
-        this.code = 0;
+        this.ID = 0;
         this.name = "default";
         this.inventory = 10;
         this.year = 2020;
         this.available = this.inventory;
     }
 
-    public Book(int code, String name, int inventory, int year, int available) {
-        this.code = code;
+    public Book(int ID, String name, int inventory, int year, int available) {
+        this.ID = ID;
         this.name = name;
         this.inventory = inventory;
         this.year = year;
@@ -24,7 +24,7 @@ public class Book {
     }
 
     public Book(String name) {
-        this.code = 0;
+        this.ID = 0;
         this.name = name;
         this.inventory = 10;
         this.year = 2020;
@@ -36,7 +36,11 @@ public class Book {
     }
 
     public String toString() {
-        return "Book - code: " + code + ", name: " + name + ", available: " + available + " out of " + inventory
+        return "Book - ID: " + ID + ", name: " + name + ", available: " + available + " out of " + inventory
                 + ", year: " + year;
+    }
+
+    public int getID() {
+        return this.ID;
     }
 }
