@@ -8,7 +8,6 @@ import java.util.Vector;
 import java.util.concurrent.TimeUnit;
 
 public class App {
-
 	static Scanner scan = new Scanner(System.in);
 
 	public static Vector<Book> books = new Vector<Book>();
@@ -20,7 +19,11 @@ public class App {
 	// which data type to work with?
 	public static Map<Integer, Book> books2 = new HashMap<Integer, Book>();
 
-	static void fillData() {
+	public App() {
+		fillData();
+	}
+
+	private static void fillData() {
 		try {
 			books.add(new Book(123, "Victor The Great", 20, 1890, 20));
 			books.add(new Book(12333, "Aigon The Beast", 20, 1960, 20));
@@ -50,95 +53,61 @@ public class App {
 		}
 	}
 
-	public App() {
-		fillData();
-		try {
-			boolean run = true;
-			int chocie;
-			while (run == true) {
-				System.out.println("enter number for task: ");
-
-				System.out.println("Library System menu\n");
-				System.out.println("1.) Find member by ID\n");
-				System.out.println("2.) Find Book by ID\n");
-				System.out.println("3.) Find supplier by ID\n");
-				System.out.println("4.) Borrow book\n");
-				System.out.println("5.) Purchase book\n");
-				System.out.println("6.) show all members");
-				System.out.println("7.) show all books");
-				System.out.println("8.) show all suppliers");
-				System.out.println("0.) Exit\n");
-				System.out.println("************************************");
-
-				System.out.print("choice: ");
-				chocie = scan.nextInt();
-
-				switch (chocie) {
-				case 1: {
-					break;
-				}
-				case 2: {
-					System.out.println(getBook());
-					break;
-				}
-				case 3: {
-					System.out.println(getSupplier());
-
-					break;
-				}
-				case 4: {
-					// public Borrow(int days, GregorianCalendar date, Member member, Book book)
-
-					break;
-				}
-				case 5: {
-
-					break;
-				}
-				case 6: {
-
-					break;
-				}
-				case 7: {
-
-					break;
-				}
-				case 8: {
-
-					break;
-				}
-				case 0: {
-					run = false;
-					break;
-				}
-
-				default:
-					break;
-				}
-
-			}
-			System.out.println("Hello Java");
-
-		} catch (
-
-		Exception e) {
-			System.out.println(e.getStackTrace());
-		} finally {
-			scan.close();
-		}
-
-	}
-
 	private static Supplier createNewSupplier() {
+		try {
+			// public Supplier(int id, String name, String phone, String address) {
+			System.out.print("enter Supplier ID: ");
+			int id = scan.nextInt();
 
-		Supplier s1 = new Supplier();
-		return s1;
+			System.out.print("enter Supplier name: ");
+			String name = scan.next();
+
+			System.out.print("enter Supplier phone: ");
+			String phone = scan.next();
+
+			System.out.print("enter Supplier address: ");
+			String address = scan.next();
+
+			Supplier s1 = new Supplier(id, name, phone, address);
+			suppliers.add(s1);
+			return s1;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
 	}
 
 	private static Book createNewBook() {
+		// public Book(int ID, String name, int inventory, int year, int available) {
 
 		Book b1 = new Book();
 		return b1;
+	}
+
+	static Borrow createNewBorrow() {
+		// public Borrow(int days, GregorianCalendar date, Member member, Book book)
+		try {
+			System.out.print("how much days: ");
+			int days = scan.nextInt();
+
+			System.out.print("enter year:");
+			int year = scan.nextInt();
+			System.out.print("enter month:");
+			int month = scan.nextInt();
+			System.out.print("enter day:");
+			int day = scan.nextInt();
+			GregorianCalendar date = new GregorianCalendar(year, month, day);
+
+			Member member = getMember();
+			Book book = getBook();
+			Borrow b1 = new Borrow(days, date, member, book);
+			borrows.add(b1);
+			return b1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+
 	}
 
 	private static Member createNewMember() {
@@ -150,7 +119,7 @@ public class App {
 		return m1;
 	}
 
-	private static Member getMember() throws InterruptedException {
+	static Member getMember() throws InterruptedException {
 
 		System.out.println("\nmembers:");
 		for (Member member : members)
@@ -180,7 +149,7 @@ public class App {
 		return null;
 	}
 
-	private static Book getBook() throws InterruptedException {
+	static Book getBook() throws InterruptedException {
 
 		System.out.println("\nBooks:");
 		for (Book book : books)
@@ -206,7 +175,7 @@ public class App {
 		return null;
 	}
 
-	private static Supplier getSupplier() throws InterruptedException {
+	static Supplier getSupplier() throws InterruptedException {
 
 		System.out.println("\nSuppliers:");
 		for (Supplier supplier : suppliers)
