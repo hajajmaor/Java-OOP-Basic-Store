@@ -43,7 +43,7 @@ class Main {
                 }
                 case 4: {
                     // public Borrow(int days, GregorianCalendar date, Member member, Book book)
-
+                    System.out.println(App.createNewBorrow());
                     break;
                 }
                 case 5: {
