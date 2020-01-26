@@ -90,13 +90,7 @@ public class App {
 			System.out.print("how much days: ");
 			int days = scan.nextInt();
 
-			System.out.print("enter year:");
-			int year = scan.nextInt();
-			System.out.print("enter month:");
-			int month = scan.nextInt();
-			System.out.print("enter day:");
-			int day = scan.nextInt();
-			GregorianCalendar date = new GregorianCalendar(year, month, day);
+			GregorianCalendar date = newDate();
 
 			Member member = getMember();
 			Book book = getBook();
@@ -114,8 +108,22 @@ public class App {
 
 		// public Member(int id, String name, int bookLimit, int bookOut, int age,
 		// String phone, String address) {
+		System.out.print("Enter ID to member: ");
+		int id = scan.nextInt();
+		System.out.print("Enter name to member: ");
+		String name = scan.next();
+		System.out.print("Enter bookLimit to member: ");
+		int bookLimit = scan.nextInt();
+		System.out.print("Enter bookOut to member: ");
+		int bookOut = scan.nextInt();
+		System.out.print("Enter age to member: ");
+		int age = scan.nextInt();
+		System.out.print("Enter phone to member: ");
+		String phone = scan.next();
+		System.out.print("Enter address to member: ");
+		String address = scan.next();
 
-		Member m1 = new Member();
+		Member m1 = new Member(id, name, bookLimit, bookOut, age, phone, address);
 		return m1;
 	}
 

@@ -73,12 +73,12 @@ class Main {
                 }
 
             } while (run);
-            System.out.println("Hello Java");
+            System.out.println(" Good Bye :) ");
 
         } catch (
 
         Exception e) {
-            System.out.println(e.getStackTrace());
+            System.out.println(e);
         } finally {
             scan.close();
         }
