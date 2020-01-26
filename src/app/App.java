@@ -121,9 +121,7 @@ public class App {
 
 	static Member getMember() throws InterruptedException {
 
-		System.out.println("\nmembers:");
-		for (Member member : members)
-			System.out.println(member);
+		showMembers();
 		System.out.print("enter ID to search: ");
 		int id = scan.nextInt();
 		boolean found = false;
@@ -151,9 +149,7 @@ public class App {
 
 	static Book getBook() throws InterruptedException {
 
-		System.out.println("\nBooks:");
-		for (Book book : books)
-			System.out.println(book);
+		showBooks();
 		System.out.print("enter ID to search: ");
 		int id = scan.nextInt();
 		boolean found = false;
@@ -177,9 +173,7 @@ public class App {
 
 	static Supplier getSupplier() throws InterruptedException {
 
-		System.out.println("\nSuppliers:");
-		for (Supplier supplier : suppliers)
-			System.out.println(supplier);
+		showSuppliers();
 		System.out.print("enter ID to search: ");
 		int id = scan.nextInt();
 		boolean found = false;
@@ -199,5 +193,54 @@ public class App {
 				createNewSupplier();
 		}
 		return null;
+	}
+
+	static GregorianCalendar newDate() {
+		System.out.print("enter year:");
+		int year = scan.nextInt();
+		System.out.print("enter month:");
+		int month = scan.nextInt();
+		System.out.print("enter day:");
+		int day = scan.nextInt();
+		GregorianCalendar date = new GregorianCalendar(year, month, day);
+		return date;
+	}
+
+	static Purchase purchaseBook() {
+		try {
+			// public Purchase(int id, int amount, Book book, GregorianCalendar date)
+			System.out.print("Enter ID of purchase:");
+			int id = scan.nextInt();
+			Book book = getBook();
+			System.out.print("Enter amount of book in purchase:");
+			int amount = scan.nextInt();
+			GregorianCalendar date = newDate();
+			Purchase p1 = new Purchase(id, amount, book, date);
+			purchases.add(p1);
+			return p1;
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return null;
+	}
+
+	static void showMembers() {
+		System.out.println("\nmembers:");
+		for (Member member : members)
+			System.out.println(member);
+	}
+
+	static void showBooks() {
+		System.out.println("\nBooks:");
+		for (Book book : books)
+			System.out.println(book);
+	}
+
+	static void showSuppliers() {
+		System.out.println("\nSuppliers:");
+		for (Supplier supplier : suppliers)
+			System.out.println(supplier);
 	}
 }

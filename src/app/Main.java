@@ -10,18 +10,17 @@ class Main {
         try {
             boolean run = true;
             int chocie;
-            while (run == true) {
+            do {
                 System.out.println("enter number for task: ");
-
                 System.out.println("Library System menu\n");
                 System.out.println("1.) Find member by ID\n");
                 System.out.println("2.) Find Book by ID\n");
                 System.out.println("3.) Find supplier by ID\n");
                 System.out.println("4.) Borrow book\n");
                 System.out.println("5.) Purchase book\n");
-                System.out.println("6.) show all members");
-                System.out.println("7.) show all books");
-                System.out.println("8.) show all suppliers");
+                System.out.println("6.) show all members\n");
+                System.out.println("7.) show all books\n");
+                System.out.println("8.) show all suppliers\n");
                 System.out.println("0.) Exit\n");
                 System.out.println("************************************");
 
@@ -47,19 +46,21 @@ class Main {
                     break;
                 }
                 case 5: {
-
+                    // System.out.println("5.) Purchase book\n");
+                    System.out.println(App.purchaseBook());
                     break;
                 }
                 case 6: {
-
+                    // System.out.println("6.) show all members");
+                    App.showMembers();
                     break;
                 }
                 case 7: {
-
+                    App.showBooks();
                     break;
                 }
                 case 8: {
-
+                    App.showSuppliers();
                     break;
                 }
                 case 0: {
@@ -71,7 +72,7 @@ class Main {
                     break;
                 }
 
-            }
+            } while (run);
             System.out.println("Hello Java");
 
         } catch (
