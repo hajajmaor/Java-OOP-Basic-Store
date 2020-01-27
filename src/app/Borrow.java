@@ -27,6 +27,6 @@ public class Borrow {
 
     public String toString() {
         return "Borrow - book: " + this.book + ", member: " + this.member + ", for " + this.days + "days, from: "
-                + this.date;
+                + this.date + date.YEAR + ":" + date.MONTH + ":" + date.DATE;
     }
 }

@@ -34,10 +34,10 @@ public class App {
 			members.add(new Member(121855, "Yeal Reader", 5, 0, 25, "054-1234567", "shimon peres 10, Rehovot"));
 			members.add(new Member(121855, "David Azulay Reader", 5, 0, 25, "054-1234567", "shimon peres 10, Rehovot"));
 
-			suppliers.add(new Supplier(123, "Hobbit Inc.", "056-6556666", "shimon, Rehovat"));
-			suppliers.add(new Supplier(123, "Rabbit Inc.", "056-6556666", "shimon, Rehovat"));
-			suppliers.add(new Supplier(123, "Toys Inc.", "056-6556666", "shimon, Rehovat"));
-			suppliers.add(new Supplier(123, "Pets Inc.", "056-6556666", "shimon, Rehovat"));
+			suppliers.add(new Supplier(123, "Hobbit Inc.", "051-6224666", "shimon, Rehovat"));
+			suppliers.add(new Supplier(124, "Rabbit Inc.", "052-65789666", "shimon, Rehovat"));
+			suppliers.add(new Supplier(127, "Toys Inc.", "053-6551112666", "shimon, Rehovat"));
+			suppliers.add(new Supplier(130, "Pets Inc.", "058-655987666", "shimon, Rehovat"));
 
 			purchases.add(new Purchase(123, 3, books.elementAt(0), new GregorianCalendar(2019, 5, 10)));
 			purchases.add(new Purchase(124, 3, books.elementAt(1), new GregorianCalendar(2019, 6, 10)));
@@ -60,13 +60,16 @@ public class App {
 			int id = scan.nextInt();
 
 			System.out.print("enter Supplier name: ");
-			String name = scan.next();
+			scan.nextLine();
+			String name = scan.nextLine();
 
 			System.out.print("enter Supplier phone: ");
-			String phone = scan.next();
+			// scan.nextLine();
+			String phone = scan.nextLine();
 
 			System.out.print("enter Supplier address: ");
-			String address = scan.next();
+			// scan.nextLine();
+			String address = scan.nextLine();
 
 			Supplier s1 = new Supplier(id, name, phone, address);
 			suppliers.add(s1);
@@ -79,9 +82,31 @@ public class App {
 
 	private static Book createNewBook() {
 		// public Book(int ID, String name, int inventory, int year, int available) {
+		try {
+			System.out.print("Enter ID to book: ");
+			int ID = scan.nextInt();
 
-		Book b1 = new Book();
-		return b1;
+			System.out.print("Enter name to book: ");
+			scan.nextLine();
+			String name = scan.nextLine();
+
+			System.out.print("Enter inventory to book: ");
+			int inventory = scan.nextInt();
+
+			System.out.print("Enter year of writing to book: ");
+			int year = scan.nextInt();
+
+			System.out.print("Enter amount of available books: ");
+			int available = scan.nextInt();
+
+			Book b1 = new Book(ID, name, inventory, year, available);
+			books.add(b1);
+			return b1;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return null;
 	}
 
 	static Borrow createNewBorrow() {
@@ -111,7 +136,8 @@ public class App {
 		System.out.print("Enter ID to member: ");
 		int id = scan.nextInt();
 		System.out.print("Enter name to member: ");
-		String name = scan.next();
+		scan.nextLine();
+		String name = scan.nextLine();
 		System.out.print("Enter bookLimit to member: ");
 		int bookLimit = scan.nextInt();
 		System.out.print("Enter bookOut to member: ");
@@ -119,12 +145,16 @@ public class App {
 		System.out.print("Enter age to member: ");
 		int age = scan.nextInt();
 		System.out.print("Enter phone to member: ");
-		String phone = scan.next();
+		scan.nextLine();
+		String phone = scan.nextLine();
 		System.out.print("Enter address to member: ");
-		String address = scan.next();
+		scan.nextLine();
+		String address = scan.nextLine();
 
 		Member m1 = new Member(id, name, bookLimit, bookOut, age, phone, address);
+		members.add(m1);
 		return m1;
+
 	}
 
 	static Member getMember() throws InterruptedException {
@@ -146,9 +176,9 @@ public class App {
 			System.out.print("enter 1 to create New Member,0 break : ");
 			int create = scan.nextInt();
 			if (create == 1) {
-				Member m1 = createNewMember();
-				members.add(m1);
-				return m1;
+				return createNewMember();
+				// members.add(m1);
+
 			}
 
 		}
@@ -174,7 +204,7 @@ public class App {
 			System.out.print("enter 1 to create New Book,0 break : ");
 			int create = scan.nextInt();
 			if (create == 1)
-				createNewBook();
+				return createNewBook();
 		}
 		return null;
 	}
@@ -198,12 +228,13 @@ public class App {
 			System.out.print("enter 1 to create New supplier,0 break : ");
 			int create = scan.nextInt();
 			if (create == 1)
-				createNewSupplier();
+				return createNewSupplier();
 		}
 		return null;
 	}
 
 	static GregorianCalendar newDate() {
+		System.out.println("entries for date:");
 		System.out.print("enter year:");
 		int year = scan.nextInt();
 		System.out.print("enter month:");
@@ -250,5 +281,11 @@ public class App {
 		System.out.println("\nSuppliers:");
 		for (Supplier supplier : suppliers)
 			System.out.println(supplier);
+	}
+
+	static void showPurchases() {
+		System.out.println("\nSuppliers:");
+		for (Purchase purchase : purchases)
+			System.out.println(purchase);
 	}
 }

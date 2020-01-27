@@ -43,4 +43,8 @@ public class Book {
     public int getID() {
         return this.ID;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

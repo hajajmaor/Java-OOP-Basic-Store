@@ -43,7 +43,7 @@ class Member {
                 return true;
             } else {
                 this.bookOut += amount;
-                System.out.println(amount + " of books have bookes");
+                System.out.println(amount + " of the book " + book.getName() + " have booked");
                 return true;
             }
 

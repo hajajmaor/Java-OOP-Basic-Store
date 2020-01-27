@@ -11,6 +11,7 @@ class Main {
             boolean run = true;
             int chocie;
             do {
+                System.out.println("************************************");
                 System.out.println("enter number for task: ");
                 System.out.println("Library System menu\n");
                 System.out.println("1.) Find member by ID\n");

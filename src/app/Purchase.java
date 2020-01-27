@@ -6,17 +6,17 @@ import java.util.GregorianCalendar;
  * Purchase
  */
 public class Purchase {
-    private int id;
-//    private String purchaseDetails;
-    private int amount;
-    private Book book;
-    private GregorianCalendar date;
-    
+	private int id;
+	// private String purchaseDetails;
+	private int amount;
+	private Book book;
+	private GregorianCalendar date;
+
 	public Purchase() {
 		this.id = 0;
 		this.amount = 0;
 		this.book = new Book();
-		this.date = new GregorianCalendar();	
+		this.date = new GregorianCalendar();
 	}
 
 	public Purchase(int id, int amount, Book book, GregorianCalendar date) {
@@ -27,8 +27,8 @@ public class Purchase {
 	}
 
 	public String toString() {
-		return "Purchase [id=" + id + ", amount=" + amount + ", book=" + book + ", date=" + date + "]";
+		return "Purchase [id=" + id + ", amount=" + amount + ", book=" + book + ", date=" + date.YEAR + ":" + date.MONTH
+				+ ":" + date.DATE + "]";
 	}
-
 
 }
