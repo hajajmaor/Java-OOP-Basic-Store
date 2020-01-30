@@ -35,6 +35,10 @@ public class Book {
         return this.available;
     }
 
+    void decreaseAmount(int amount) {
+        this.available = this.available - amount;
+    }
+
     public String toString() {
         return "Book - ID: " + ID + ", name: " + name + ", available: " + available + " out of " + inventory
                 + ", year: " + year;

@@ -1,7 +1,7 @@
 package app;
 
 // import java.util.Date;
-import java.util.GregorianCalendar;
+// import java.util.GregorianCalendar;
 
 class Member {
     private int id;
@@ -32,16 +32,21 @@ class Member {
         this.address = address;
     }
 
-    public boolean borrowBook(Book book, GregorianCalendar date, int amount) {
-        if (this.bookOut >= this.bookLimit) {
-            System.out.println("limit of " + this.bookLimit + " passed");
+    public boolean borrowBook(Book book, int amount) {
+        if (book.getAvailable() < amount) {
+            System.out.println("don't have enough on inventory to borrow.");
+            return false;
+        } else if (this.bookOut >= this.bookLimit) {
+            System.out.println("limit of " + this.bookLimit + " for member passed");
             return false;
         } else {
             if (amount > (this.bookLimit - this.bookOut)) {
                 this.bookOut += (this.bookLimit - this.bookOut);
                 System.out.println("booked only " + (this.bookLimit - this.bookOut) + " books");
+                book.decreaseAmount(this.bookLimit - this.bookOut);
                 return true;
             } else {
+                book.decreaseAmount(this.bookLimit - this.bookOut);
                 this.bookOut += amount;
                 System.out.println(amount + " of the book " + book.getName() + " have booked");
                 return true;

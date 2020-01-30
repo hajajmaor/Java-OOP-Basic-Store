@@ -1,5 +1,6 @@
 package app;
 
+import java.util.Calendar;
 // import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -14,7 +15,7 @@ public class Borrow {
         this.date = date;
         this.member = member;
         this.book = book;
-        member.borrowBook(this.book, this.date, 1);
+        member.borrowBook(this.book, 1);
     }
 
     public Borrow() {
@@ -22,11 +23,11 @@ public class Borrow {
         this.date = new GregorianCalendar();
         this.member = new Member();
         this.book = new Book();
-        member.borrowBook(this.book, this.date, 1);
+        member.borrowBook(this.book, 1);
     }
 
     public String toString() {
         return "Borrow - book: " + this.book + ", member: " + this.member + ", for " + this.days + "days, from: "
-                + this.date + date.YEAR + ":" + date.MONTH + ":" + date.DATE;
+                + date.get(Calendar.YEAR) + ":" + date.get(Calendar.MONTH) + 1 + ":" + date.get(Calendar.DAY_OF_MONTH);
     }
 }

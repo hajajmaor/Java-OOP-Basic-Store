@@ -1,5 +1,6 @@
 package app;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -27,8 +28,8 @@ public class Purchase {
 	}
 
 	public String toString() {
-		return "Purchase [id=" + id + ", amount=" + amount + ", book=" + book + ", date=" + date.YEAR + ":" + date.MONTH
-				+ ":" + date.DATE + "]";
+		return "Purchase [id=" + id + ", amount=" + amount + ", book=" + book + ", date=" + date.get(Calendar.YEAR)
+				+ ":" + date.get(Calendar.MONTH) + 1 + ":" + date.get(Calendar.DAY_OF_MONTH);
 	}
 
 }
