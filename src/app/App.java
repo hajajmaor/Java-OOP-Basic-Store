@@ -148,7 +148,7 @@ public class App {
 		scan.nextLine();
 		String phone = scan.nextLine();
 		System.out.print("Enter address to member: ");
-		scan.nextLine();
+		// scan.nextLine();
 		String address = scan.nextLine();
 
 		Member m1 = new Member(id, name, bookLimit, bookOut, age, phone, address);
