@@ -39,10 +39,14 @@ public class App {
 			suppliers.add(new Supplier(127, "Toys Inc.", "053-6551112666", "shimon, Rehovat"));
 			suppliers.add(new Supplier(130, "Pets Inc.", "058-655987666", "shimon, Rehovat"));
 
-			purchases.add(new Purchase(123, 3, books.elementAt(0), new GregorianCalendar(2019, 5, 10)));
-			purchases.add(new Purchase(124, 3, books.elementAt(1), new GregorianCalendar(2019, 6, 10)));
-			purchases.add(new Purchase(125, 3, books.elementAt(2), new GregorianCalendar(2019, 8, 10)));
-			purchases.add(new Purchase(126, 3, books.elementAt(2), new GregorianCalendar(2019, 9, 10)));
+			purchases.add(
+					new Purchase(123, 3, books.elementAt(0), new GregorianCalendar(2019, 5, 10), suppliers.get(0)));
+			purchases.add(
+					new Purchase(124, 3, books.elementAt(1), new GregorianCalendar(2019, 6, 10), suppliers.get(0)));
+			purchases.add(
+					new Purchase(125, 3, books.elementAt(2), new GregorianCalendar(2019, 8, 10), suppliers.get(0)));
+			purchases.add(
+					new Purchase(126, 3, books.elementAt(2), new GregorianCalendar(2019, 9, 10), suppliers.get(0)));
 
 			borrows.add(new Borrow(20, new GregorianCalendar(), members.elementAt(0), books.elementAt(0)));
 			borrows.add(new Borrow(20, new GregorianCalendar(), members.elementAt(1), books.elementAt(1)));
@@ -167,7 +171,7 @@ public class App {
 			if (member.getID() == id) {
 				found = true;
 				System.out.println(member);
-				TimeUnit.SECONDS.sleep(5);
+				TimeUnit.SECONDS.sleep(3);
 				return member;
 			}
 		}
@@ -195,7 +199,7 @@ public class App {
 			if (book.getID() == id) {
 				found = true;
 				System.out.println(book);
-				TimeUnit.SECONDS.sleep(5);
+				TimeUnit.SECONDS.sleep(3);
 				return book;
 			}
 		}
@@ -219,7 +223,7 @@ public class App {
 			if (supplier.getID() == id) {
 				found = true;
 				System.out.println(supplier);
-				TimeUnit.SECONDS.sleep(5);
+				TimeUnit.SECONDS.sleep(3);
 				return supplier;
 			}
 		}
@@ -250,11 +254,12 @@ public class App {
 			// public Purchase(int id, int amount, Book book, GregorianCalendar date)
 			System.out.print("Enter ID of purchase:");
 			int id = scan.nextInt();
+			Supplier supplier = getSupplier();
 			Book book = getBook();
 			System.out.print("Enter amount of book in purchase:");
 			int amount = scan.nextInt();
 			GregorianCalendar date = newDate();
-			Purchase p1 = new Purchase(id, amount, book, date);
+			Purchase p1 = new Purchase(id, amount, book, date, supplier);
 			purchases.add(p1);
 			return p1;
 

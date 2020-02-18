@@ -36,7 +36,11 @@ public class Book {
     }
 
     void decreaseAmount(int amount) {
-        this.available = this.available - amount;
+        try {
+            this.available = this.available - amount;
+        } catch (Exception e) {
+        }
+
     }
 
     public String toString() {
