@@ -254,11 +254,11 @@ public class App {
 			// public Purchase(int id, int amount, Book book, GregorianCalendar date)
 			System.out.print("Enter ID of purchase:");
 			int id = scan.nextInt();
+			GregorianCalendar date = newDate();
 			Supplier supplier = getSupplier();
 			Book book = getBook();
 			System.out.print("Enter amount of book in purchase:");
 			int amount = scan.nextInt();
-			GregorianCalendar date = newDate();
 			Purchase p1 = new Purchase(id, amount, book, date, supplier);
 			purchases.add(p1);
 			return p1;
